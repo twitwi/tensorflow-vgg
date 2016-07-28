@@ -15,7 +15,7 @@ class Vgg19:
             path = os.path.abspath(os.path.join(path, os.pardir))
             path = os.path.join(path, "vgg19.npy")
             vgg19_npy_path = path
-            print vgg19_npy_path
+            print(vgg19_npy_path)
 
         self.data_dict = np.load(vgg19_npy_path, encoding='latin1').item()
         print("npy file loaded")
@@ -81,7 +81,7 @@ class Vgg19:
         self.prob = tf.nn.softmax(self.fc8, name="prob")
 
         self.data_dict = None
-        print("build model finished: %ds" % (time.time() - start_time))
+        print(("build model finished: %ds" % (time.time() - start_time)))
 
     def avg_pool(self, bottom, name):
         return tf.nn.avg_pool(bottom, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='SAME', name=name)
